@@ -13,10 +13,11 @@ A service checker accepts requests from master server and puts them in a queue (
 
 ### Authentication
 Master server makes request to checker providing authentication token. In response to master server requests, checker makes request to master server providing another authentication token. Both token are generated using the following scheme:
-1. Generate so-called **nonce** - random byte string. The size of byte array is specified using `THEMIS_FINALS_NONCE_SIZE` environment variable (by default 16);
-2. Decode Base64 urlsafe encoded (RFC 4648) **secret key** to a byte array. In first case, it should be contained in `THEMIS_FINALS_MASTER_KEY` environment variable, `THEMIS_FINALS_CHECKER_KEY` in the second case.
-3. Combine both **nonce** and **secret key** byte arrays and calculate SHA256 **hash digest** (byte array)
-4. Combine **nonce** and **hash digest** byte arrays and encode it with Base64 urlsafe (RFC4648) method
+
+1. Generate so-called **nonce** - random byte string. The size of byte array is specified using `THEMIS_FINALS_NONCE_SIZE` environment variable (by default 16);  
+2. Decode Base64 urlsafe encoded (RFC 4648) **secret key** to a byte array. In first case, it should be contained in `THEMIS_FINALS_MASTER_KEY` environment variable, `THEMIS_FINALS_CHECKER_KEY` in the second case;  
+3. Combine both **nonce** and **secret key** byte arrays and calculate SHA256 **hash digest** (byte array);  
+4. Combine **nonce** and **hash digest** byte arrays and encode it with Base64 urlsafe (RFC4648) method;  
 5. Pass generated token in HTTP Header specified in `THEMIS_FINALS_AUTH_TOKEN_HEADER` (by default `X-Themis-Finals-Auth-Token`)
 
 ### PUSH
