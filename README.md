@@ -18,7 +18,7 @@ Master server makes request to checker providing authentication token. In respon
 2. Decode Base64 urlsafe encoded (RFC 4648) **secret key** to a byte array. In first case, it should be contained in `THEMIS_FINALS_MASTER_KEY` environment variable, `THEMIS_FINALS_CHECKER_KEY` in the second case;  
 3. Combine both **nonce** and **secret key** byte arrays and calculate SHA256 **hash digest** (byte array);  
 4. Combine **nonce** and **hash digest** byte arrays and encode it with Base64 urlsafe (RFC4648) method;  
-5. Pass generated token in HTTP Header specified in `THEMIS_FINALS_AUTH_TOKEN_HEADER` (by default `X-Themis-Finals-Auth-Token`)
+5. Pass generated token in HTTP Header specified in `THEMIS_FINALS_AUTH_TOKEN_HEADER` (by default `X-Themis-Finals-Auth-Token`).
 
 ### PUSH
 ```
@@ -87,10 +87,11 @@ Queue process can be launched in several processes. Process monitoring system (e
 
 ### Other requirements
 To have similar interface, it is suggested to put all scripts in `script` folder. The following script names are reserved and should be used only for certain purposes:
-1. `bootstrap` - project setup
-2. `console` - CLI
-3. `queue` - queue launch script
-4. `server` - web server launch script
+
+1. `bootstrap` - project setup;  
+2. `console` - CLI;  
+3. `queue` - queue launch script;  
+4. `server` - web server launch script.
 
 Among those reserved, only `queue` and `server` are required. The presence/absence of other scripts depends on the author of the checker.
 
