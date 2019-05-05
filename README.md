@@ -1,12 +1,13 @@
-# VolgaCTF Final Checker Protocol (VFCP)
-[VolgaCTF Final](https://github.com/VolgaCTF/volgactf-final) is a checking system for A/D CTF contests. This document describes interaction between a checking system master server and service checkers.
+# VolgaCTF Final Checker Protocol
+
+[VolgaCTF Final](https://github.com/VolgaCTF/volgactf-final) is an automatic checking system (ACS) for A/D CTF contests. This document describes interaction between an ACS master and service checkers.
 
 ## Protocol
 A service checker is a REST web service running on its own FQDN[:port]. For example, the FQDN might look like `awesome-service-checker.final.volgactf.ru`.
 
-A service checker accepts requests from the master server and puts them into a queue. An HTTP request must be finished with a 202 Accepted code (without waiting for the queue to process the request). When the queue processes the request, it makes another HTTP request to the master server in order to acknowledge it about the result of processing.
+A service checker accepts requests from the ACS master and puts them into a queue. An HTTP request must be finished with a 202 Accepted code (without waiting for the queue to process the request). When the queue processes the request, it makes another HTTP request to the ACS master in order to acknowledge it about the result of processing.
 
-Given that the master server signs capsules with a private key, a public key must be made available to a service checker so that it can decode capsules.
+Given that the ACS master server signs capsules with a private key, a public key must be made available to a service checker so that it can decode capsules.
 
 ### Authentication
 See [HTTP Basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication).
