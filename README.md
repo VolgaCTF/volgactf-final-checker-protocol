@@ -1,6 +1,8 @@
 # VolgaCTF Final Checker Protocol
 
-[VolgaCTF Final](https://github.com/VolgaCTF/volgactf-final) is an automatic checking system (ACS) for A/D CTF contests. This document describes interaction between an ACS master and service checkers.
+[VolgaCTF Final](https://github.com/VolgaCTF/volgactf-final) is an automatic checking system (ACS) for A/D CTF contests.
+
+This document describes interaction between an ACS master and service checkers.
 
 ## Protocol
 A service checker is a REST web service running on its own FQDN[:port]. For example, the FQDN might look like `awesome-service-checker.final.volgactf.ru`.
