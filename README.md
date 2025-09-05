@@ -52,7 +52,8 @@ Authorization: Basic dmFnc.....
   "flag": "493022d1e896e73debf32b7d6766e874",
   "label": "b12WSEBn",
   "message": "...",
-  "status": 101
+  "status": 101,
+  "open_data": "wyDXmZEL"
 }
 ```
 
